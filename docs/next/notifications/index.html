@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.1180396d.css">
-<script src="/assets/js/runtime~main.bc625d04.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3ed0fc10.js" defer="defer"></script>
 <script src="/assets/js/main.bcd1e4d3.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -49,7 +49,7 @@ They are not intended for inter-process communication of any kind.</p>
 <li>Notifications pertaining to a particular entity in the catalog: A notification might apply to an entity and the owning team.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="installation-in-older-environments">Installation in Older Environments<a href="#installation-in-older-environments" class="hash-link" aria-label="Direct link to Installation in Older Environments" title="Direct link to Installation in Older Environments">​</a></h2>
-<p>Newer versions of instances created by the create-app have both the notifications and signals plugins included by default, this section can be skipped right to the Configuration.</p>
+<p>Newer versions of instances created by the create-app have both the notifications and signals plugins included by default; this section can be skipped right to the Configuration.</p>
 <p>Following installation instructions are valid for enabling the plugins in older environments.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="add-notifications-backend">Add Notifications Backend<a href="#add-notifications-backend" class="hash-link" aria-label="Direct link to Add Notifications Backend" title="Direct link to Add Notifications Backend">​</a></h3>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#232323"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#232323"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token function" style="color:rgb(220, 220, 170)">yarn</span><span class="token plain"> workspace backend </span><span class="token function" style="color:rgb(220, 220, 170)">add</span><span class="token plain"> @backstage/plugin-notifications-backend</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
@@ -76,11 +76,11 @@ They are not intended for inter-process communication of any kind.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="configuration">Configuration<a href="#configuration" class="hash-link" aria-label="Direct link to Configuration" title="Direct link to Configuration">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="notifications-backend">Notifications Backend<a href="#notifications-backend" class="hash-link" aria-label="Direct link to Notifications Backend" title="Direct link to Notifications Backend">​</a></h3>
 <p>The Notifications backend plugin provides an API to create notifications, list notifications per logged-in user, and search based on parameters.</p>
-<p>The plugin uses a relational <a href="https://backstage.io/docs/getting-started/config/database" target="_blank" rel="noopener noreferrer">database</a> for persistence, no specifics are introduced in this context.</p>
+<p>The plugin uses a relational <a href="https://backstage.io/docs/getting-started/config/database" target="_blank" rel="noopener noreferrer">database</a> for persistence; no specifics are introduced in this context.</p>
 <p>No additional configuration in the app-config is needed, except for optional additional modules for <code>processors</code>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="notifications-frontend">Notifications Frontend<a href="#notifications-frontend" class="hash-link" aria-label="Direct link to Notifications Frontend" title="Direct link to Notifications Frontend">​</a></h3>
-<p>The recipients of notifications have to be entities in the catalog, e.g. of the User or Group kind.</p>
-<p>Otherwise no specific configuration is needed for the front-end notifications plugin.</p>
+<p>The recipients of notifications have to be entities in the catalog, e.g., of the User or Group kind.</p>
+<p>Otherwise, no specific configuration is needed for the front-end notifications plugin.</p>
 <p>All parametrization is done through component properties, such as the <code>NotificationsSidebarItem</code>, which can be used as an active left-side menu item in the front-end.</p>
 <p><img decoding="async" loading="lazy" alt="Notifications Page" src="/assets/images/notificationsPage-3c61ae732e837faf0b86725f780907d0.png" width="1918" height="958" class="img_ev3q"></p>
 <p>In the <code>packages/app/src/components/Root/Root.tsx</code>, tweak the <a href="https://backstage.io/docs/reference/plugin-notifications.notificationssidebaritem" target="_blank" rel="noopener noreferrer">properties</a> of the <code>&lt;NotificationsSidebarItem /&gt;</code> per specific needs.</p>
