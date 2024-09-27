@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.1180396d.css">
-<script src="/assets/js/runtime~main.ef2b7eea.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.a50d9cd4.js" defer="defer"></script>
 <script src="/assets/js/main.5dfc6df1.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -41,6 +41,7 @@ should point to your Backstage backend auth handler.</p>
 <li>Set this to <code>http://{APP_FQDN}:{APP_BACKEND_PORT}/api/auth/gitlab/handler/frame</code> for non-local deployments.</li>
 <li>Select the following scopes from the list:
 <ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled="" checked=""> <code>api</code> Grants full read-write access to the api. This is only required if users need to be able to create merge requests with their own permissions.</li>
 <li class="task-list-item"><input type="checkbox" disabled="" checked=""> <code>read_user</code> Grants read-only access to the authenticated user&#x27;s profile through the /user API endpoint, which includes username, public email, and full name. Also grants access to read-only API endpoints under /users.</li>
 <li class="task-list-item"><input type="checkbox" disabled="" checked=""> <code>read_repository</code> Grants read-only access to repositories on private projects using Git-over-HTTP (not using the API).</li>
 <li class="task-list-item"><input type="checkbox" disabled="" checked=""> <code>write_repository</code> Grants read-write access to repositories on private projects using Git-over-HTTP (not using the API).</li>
