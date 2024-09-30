@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.1180396d.css">
-<script src="/assets/js/runtime~main.a50d9cd4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b865d366.js" defer="defer"></script>
 <script src="/assets/js/main.5dfc6df1.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -124,9 +124,9 @@ the final say in what APIs will be loaded at runtime? The app may override the
 factories for any of the core or plugin APIs, with the exception of the config,
 app theme, and identity APIs. These are static APIs that are tied into the
 <a href="/docs/next/reference/app-defaults.createapp"><code>createApp</code></a> implementation and
-therefore not possible to override.</p>
+therefore, not possible to override.</p>
 <p>Overriding APIs is useful for apps that want to switch out behavior to tailor it
-to their environment. In some cases plugins, may also export multiple
+to their environment. In some cases, plugins may also export multiple
 implementations of the same API, where they each have their own different
 requirements, for example, backend storage and the surrounding environment.</p>
 <p>Supplying APIs to the app works just like for plugins:</p>
