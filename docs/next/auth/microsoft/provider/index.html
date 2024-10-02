@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.1180396d.css">
-<script src="/assets/js/runtime~main.8484e080.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fa0ecda2.js" defer="defer"></script>
 <script src="/assets/js/main.3483814a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -80,6 +80,7 @@ Leave blank if your app registration is multi tenant.
 When specified, this reduces login friction for users with accounts in multiple tenants by automatically filtering away accounts from other tenants.
 For more details, see <a href="https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/home-realm-discovery-policy" target="_blank" rel="noopener noreferrer">Home Realm Discovery</a></li>
 <li><code>additionalScopes</code> (optional): List of scopes for the App Registration, to be requested in addition to the required ones.</li>
+<li><code>skipUserProfile</code> (optional): If true, skips loading the user profile even if the <code>User.Read</code> scope is present. This is a performance optimization during login and can be used with resolvers that only needs the email address in <code>spec.profile.email</code> obtained when the <code>email</code> OAuth2 scope is present.</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="resolvers">Resolvers<a href="#resolvers" class="hash-link" aria-label="Direct link to Resolvers" title="Direct link to Resolvers">​</a></h3>
 <p>This provider includes several resolvers out of the box that you can use:</p>
