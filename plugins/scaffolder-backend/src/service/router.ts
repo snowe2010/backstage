@@ -472,6 +472,7 @@ export async function createRouter(
             description: schema.description,
             schema,
           })),
+          EXPERIMENTAL_formHooks: template.spec.EXPERIMENTAL_formHooks,
         });
       },
     )
