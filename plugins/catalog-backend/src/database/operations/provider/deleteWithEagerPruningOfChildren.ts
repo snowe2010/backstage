@@ -30,11 +30,11 @@ import {
  * the removal of their parents.
  */
 export async function deleteWithEagerPruningOfChildren(options: {
-  knex: Knex | Knex.Transaction;
+  tx: Knex.Transaction;
   entityRefs: string[];
   sourceKey: string;
 }): Promise<number> {
-  const { knex, entityRefs, sourceKey } = options;
+  const { tx, entityRefs, sourceKey } = options;
 
   // Split up the operation by (large) chunks, so that we do not hit database
   // limits for the number of permitted bindings on a precompiled statement
@@ -42,7 +42,7 @@ export async function deleteWithEagerPruningOfChildren(options: {
   for (const refs of lodash.chunk(entityRefs, 1000)) {
     const { orphanEntityRefs } =
       await findDescendantsThatWouldHaveBeenOrphanedByDeletion({
-        knex: options.knex,
+        knex: options.tx,
         refs,
         sourceKey,
       });
@@ -50,10 +50,10 @@ export async function deleteWithEagerPruningOfChildren(options: {
     // Chunk again - these can be many more than the outer chunk size
     for (const refsToDelete of lodash.chunk(orphanEntityRefs, 1000)) {
       await markEntitiesAffectedByDeletionForStitching({
-        knex: options.knex,
+        knex: options.tx,
         entityRefs: refsToDelete,
       });
-      await knex
+      await tx
         .delete()
         .from('refresh_state')
         .whereIn('entity_ref', refsToDelete);
@@ -62,7 +62,7 @@ export async function deleteWithEagerPruningOfChildren(options: {
     // Delete the references that originate only from this entity provider. Note
     // that there may be more than one entity provider making a "claim" for a
     // given root entity, if they emit with the same location key.
-    await knex<DbRefreshStateReferencesRow>('refresh_state_references')
+    await tx<DbRefreshStateReferencesRow>('refresh_state_references')
       .where('source_key', '=', sourceKey)
       .whereIn('target_entity_ref', refs)
       .delete();

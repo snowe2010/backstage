@@ -117,11 +117,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         { source_key: 'P2', target_entity_ref: 'E5' },
       );
       await insertRelation(knex, { from: 'E4', to: 'E2' });
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E1', 'E3'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E1', 'E3'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual(['E4', 'E5']);
       await expect(entitiesMarkedForStitching(knex)).resolves.toEqual(['E4']);
     },
@@ -152,11 +154,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         { source_key: 'P1', target_entity_ref: 'E2' },
       );
       await insertRelation(knex, { from: 'E2', to: 'E1' });
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E1'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E1'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual(['E2']);
       await expect(entitiesMarkedForStitching(knex)).resolves.toEqual(['E2']);
     },
@@ -190,11 +194,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         { from: 'E2', to: 'E1' },
         { from: 'E3', to: 'E2' },
       );
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E1'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E1'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual(['E2', 'E3']);
       await expect(entitiesMarkedForStitching(knex)).resolves.toEqual(['E2']);
     },
@@ -223,11 +229,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         { source_key: 'P1', target_entity_ref: 'E3' },
         { source_entity_ref: 'E3', target_entity_ref: 'E2' },
       );
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E1'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E1'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual(['E2', 'E3']);
       await expect(entitiesMarkedForStitching(knex)).resolves.toEqual([]);
     },
@@ -262,11 +270,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         { source_entity_ref: 'E5', target_entity_ref: 'E6' },
       );
       await insertRelation(knex, { from: 'E4', to: 'E2' });
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E1'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E1'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual([
         'E3',
         'E4',
@@ -274,11 +284,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         'E6',
       ]);
       await expect(entitiesMarkedForStitching(knex)).resolves.toEqual(['E4']);
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E3'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E3'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual([]);
       await expect(entitiesMarkedForStitching(knex)).resolves.toEqual([]);
     },
@@ -307,11 +319,13 @@ describe('deleteWithEagerPruningOfChildren', () => {
         { source_key: 'P1', target_entity_ref: 'E3' },
         { source_key: 'P2', target_entity_ref: 'E4' },
       );
-      await deleteWithEagerPruningOfChildren({
-        knex,
-        sourceKey: 'P1',
-        entityRefs: ['E2', 'E3', 'E4'],
-      });
+      await knex.transaction(tx =>
+        deleteWithEagerPruningOfChildren({
+          tx,
+          sourceKey: 'P1',
+          entityRefs: ['E2', 'E3', 'E4'],
+        }),
+      );
       await expect(remainingEntities(knex)).resolves.toEqual([
         'E1',
         'E2',
