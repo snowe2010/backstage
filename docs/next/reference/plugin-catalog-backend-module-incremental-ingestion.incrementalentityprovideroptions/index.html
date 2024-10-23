@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.099b0d78.css">
-<script src="/assets/js/runtime~main.7e776f47.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7a4e1a31.js" defer="defer"></script>
 <script src="/assets/js/main.9520ecbe.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -43,21 +43,21 @@
 <p><a href="/docs/next/reference/plugin-catalog-backend-module-incremental-ingestion.incrementalentityprovideroptions.backoff">backoff?</a></p>
 </td><td>
 </td><td>
-<p>DurationObjectUnits[]</p>
+<p><a href="/docs/next/reference/types.humanduration">HumanDuration</a>[]</p>
 </td><td>
 <p><em>(Optional)</em> In the event of an error during an ingestion burst, the backoff determines how soon it will be retried. E.g. <code>[{ minutes: 1}, { minutes: 5}, {minutes: 30 }, { hours: 3 }]</code></p>
 </td></tr><tr><td>
 <p><a href="/docs/next/reference/plugin-catalog-backend-module-incremental-ingestion.incrementalentityprovideroptions.burstinterval">burstInterval</a></p>
 </td><td>
 </td><td>
-<p>DurationObjectUnits</p>
+<p><a href="/docs/next/reference/types.humanduration">HumanDuration</a></p>
 </td><td>
 <p>Entities are ingested in bursts. This interval determines how much time to wait in between each burst.</p>
 </td></tr><tr><td>
 <p><a href="/docs/next/reference/plugin-catalog-backend-module-incremental-ingestion.incrementalentityprovideroptions.burstlength">burstLength</a></p>
 </td><td>
 </td><td>
-<p>DurationObjectUnits</p>
+<p><a href="/docs/next/reference/types.humanduration">HumanDuration</a></p>
 </td><td>
 <p>Entities are ingested in bursts. This value determines how long to keep ingesting within each burst.</p>
 </td></tr><tr><td>
@@ -78,7 +78,7 @@
 <p><a href="/docs/next/reference/plugin-catalog-backend-module-incremental-ingestion.incrementalentityprovideroptions.restlength">restLength</a></p>
 </td><td>
 </td><td>
-<p>DurationObjectUnits</p>
+<p><a href="/docs/next/reference/types.humanduration">HumanDuration</a></p>
 </td><td>
 <p>After a successful ingestion, the incremental entity provider will rest for this period of time before starting to ingest again.</p>
 </td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/backstage/backstage/edit/master/docs/reference/plugin-catalog-backend-module-incremental-ingestion.incrementalentityprovideroptions.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title"></div><ul class="footer__items clean-list"><li class="footer__item">
