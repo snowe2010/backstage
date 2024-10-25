@@ -1,0 +1,1 @@
+import{_ as r,d as a,q as o}from"./defaultTheme-GyRRohif.js";import{w as s}from"./withStyles-hRWsWcSf.js";function m(e,t){return s(e,r({defaultTheme:a},t))}function n(e){if(typeof e!="string")throw new Error(o(7));return e.charAt(0).toUpperCase()+e.slice(1)}export{n as c,m as w};
