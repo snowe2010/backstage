@@ -49,7 +49,7 @@ export type EntityAutocompletePickerProps<
   path: string;
   showCounts?: boolean;
   Filter: { new (values: string[]): NonNullable<T[Name]> };
-  InputProps?: TextFieldProps['InputProps'];
+  InputProps?: TextFieldProps;
   initialSelectedOptions?: string[];
   filtersForAvailableValues?: Array<keyof T>;
 };
@@ -76,6 +76,7 @@ export function EntityAutocompletePicker<
     path,
     showCounts,
     Filter,
+    InputProps,
     initialSelectedOptions = [],
     filtersForAvailableValues = ['kind'],
   } = props;
@@ -151,6 +152,7 @@ export function EntityAutocompletePicker<
         name={`${String(name)}-picker`}
         options={availableOptions}
         value={selectedOptions}
+        TextFieldProps={InputProps}
         onChange={(_event: object, options: string[]) =>
           setSelectedOptions(options)
         }
